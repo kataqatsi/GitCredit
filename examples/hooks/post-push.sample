@@ -1,0 +1,5 @@
+#!/bin/sh
+# Optional: copy to .git/hooks/post-push (chmod +x) if you use plain `git` instead of `gitcredit`
+# as your daily driver — then this runs `gitcredit record` after each push.
+
+command -v gitcredit >/dev/null 2>&1 && gitcredit record || true

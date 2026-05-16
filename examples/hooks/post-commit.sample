@@ -1,0 +1,5 @@
+#!/bin/sh
+# Copy to .git/hooks/post-commit (and chmod +x) to record local commits on the heatmap.
+# Omit if you only want pushes.
+
+command -v gitcredit >/dev/null 2>&1 && gitcredit record || true

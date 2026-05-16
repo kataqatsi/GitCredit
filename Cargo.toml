@@ -1,0 +1,21 @@
+[package]
+name = "gitcredit"
+version = "0.1.0"
+edition = "2021"
+description = "Git contribution graph outside of git"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+directories = "6"
+reqwest = { version = "0.12", default-features = false, features = [
+    "blocking",
+    "rustls-tls",
+] }
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
+thiserror = "2"
+toml = "0.8"
+
+[[bin]]
+name = "gitcredit"
+path = "src/main.rs"
