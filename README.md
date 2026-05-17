@@ -3,21 +3,21 @@
 > CLI for contribution graphs outside of GitHub
 
 ```sh
+# use it just like git, except it makes a post on push
 alias g="gitcredit"
 g status
-# git status results
 g add .
 g commit -m "changes"
 g push origin main
 # gitcredit activity +1
 
-OR
+OR Manually
 
 g record
 # gitcredit activity +1
 ```
 
-see your own contributions and follow others at <a>gitcredit.dev</a>
+see your own contributions and follow others at <a href="https://gitcredit.dev">gitcredit.dev</a>
 
 ### Table of Contents
 
@@ -31,7 +31,7 @@ see your own contributions and follow others at <a>gitcredit.dev</a>
 
 ### Setup
 
-1. Create an account at <a>gitcredit.dev</a>
+1. Create an account at <a href="https://gitcredit.dev">gitcredit.dev</a>
 1. Copy your api key in the settings
 1. In the terminal run `g configure api-key`
 1. Paste your api key
@@ -43,4 +43,4 @@ see your own contributions and follow others at <a>gitcredit.dev</a>
 
 OR
 
-1. manually increment your activity by running `g record`
+1. Manually increment your activity by running `g record`
