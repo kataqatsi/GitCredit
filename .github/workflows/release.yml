@@ -69,16 +69,22 @@ jobs:
       - name: Stage release files
         shell: bash
         run: |
+          set -euo pipefail
           mkdir -p release-asset
           shopt -s nullglob
-          for f in gitcredit-${{ matrix.target }}.tar.gz gitcredit-${{ matrix.target }}.zip; do
-            [ -e "$f" ] && mv "$f" release-asset/
-          done
+          artifacts=(gitcredit-${{ matrix.target }}.tar.gz gitcredit-${{ matrix.target }}.zip)
+          if [ "${#artifacts[@]}" -eq 0 ]; then
+            echo "No release artifacts found in $(pwd):"
+            ls -la
+            exit 1
+          fi
+          mv "${artifacts[@]}" release-asset/
 
       - uses: actions/upload-artifact@v4
         with:
           name: gitcredit-${{ matrix.target }}
           path: release-asset/
+          if-no-files-found: error
 
   release:
     needs: build
