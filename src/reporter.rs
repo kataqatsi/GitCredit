@@ -36,6 +36,9 @@ pub fn maybe_record_after_git(
 /// `GET {api_url}/v1/contribution/create_contribution?api_key=...&repository_id=...`
 pub fn record_contribution(cfg: &Config, git_workdir: &Path) -> Result<(), ReportError> {
     if !cfg.reporting_enabled() {
+        if !cfg.has_api_key() {
+            config::print_missing_api_key_hint();
+        }
         return Ok(());
     }
 

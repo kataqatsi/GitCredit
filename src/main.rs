@@ -145,11 +145,11 @@ fn read_api_key_from_stdin() -> Option<String> {
 
 fn cmd_record(cfg: &Config, args: &[String]) -> process::ExitCode {
     if !cfg.reporting_enabled() {
-        eprintln!(
-            "gitcredit: reporting is disabled. Run:\n  \
-             gitcredit configure api-key <paste-from-web-app>\n  \
-             or set GITCREDIT_API_KEY."
-        );
+        if !cfg.has_api_key() {
+            config::print_missing_api_key_hint();
+        } else {
+            eprintln!("gitcredit: reporting is disabled (API URL not configured).");
+        }
         return process::ExitCode::from(1);
     }
 

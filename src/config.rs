@@ -75,10 +75,23 @@ impl Config {
         cfg
     }
 
-    pub fn reporting_enabled(&self) -> bool {
-        self.api_url.as_ref().is_some_and(|u| !u.is_empty())
-            && self.api_key.as_ref().is_some_and(|k| !k.is_empty())
+    pub fn has_api_key(&self) -> bool {
+        self.api_key
+            .as_ref()
+            .is_some_and(|k| !k.trim().is_empty())
     }
+
+    pub fn reporting_enabled(&self) -> bool {
+        self.api_url.as_ref().is_some_and(|u| !u.is_empty()) && self.has_api_key()
+    }
+}
+
+pub fn print_missing_api_key_hint() {
+    eprintln!(
+        "gitcredit: no API key configured. Run:\n  \
+         gitcredit configure api-key <paste-from-web-app>\n  \
+         or set GITCREDIT_API_KEY."
+    );
 }
 
 pub fn config_file_path() -> Option<PathBuf> {
