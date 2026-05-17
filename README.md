@@ -38,4 +38,9 @@ see your own contributions and follow others at <a>gitcredit.dev</a>
 
 ### Usage
 
-1.
+1. Use it like you would git commands except after a push, there is an extra api call to increment activity.
+1. No data about your repo is read/sent.
+
+OR
+
+1. manually increment your activity by running `g record`
