@@ -1,4 +1,4 @@
-# GitCredit.dev
+# gitcredit.dev
 
 > CLI for contribution graphs outside of GitHub
 
