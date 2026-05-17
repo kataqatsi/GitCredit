@@ -1,6 +1,6 @@
 [package]
 name = "gitcredit"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Git contribution graph outside of git"
 license = "MIT OR Apache-2.0"
