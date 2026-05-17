@@ -3,7 +3,7 @@ use std::process::Command;
 
 use sha2::{Digest, Sha256};
 
-use crate::config::{Config, DEFAULT_API_URL};
+use crate::config::{self, Config, DEFAULT_API_URL};
 use crate::git_context;
 use crate::git_exec;
 
